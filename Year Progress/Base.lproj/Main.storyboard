@@ -773,8 +773,8 @@
                                             </connections>
                                         </button>
                                     </gridCell>
-                                    <gridCell row="GE1-iO-vps" column="cxv-bx-NgZ" xPlacement="none" id="uiq-fW-Zoj">
-                                        <button key="contentView" identifier="orange" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zmj-MO-p9h">
+                                    <gridCell row="GE1-iO-vps" column="cxv-bx-NgZ" id="uiq-fW-Zoj">
+                                        <button key="contentView" identifier="orange" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zmj-MO-p9h">
                                             <rect key="frame" x="94" y="25" width="67" height="18"/>
                                             <buttonCell key="cell" type="radio" title="Orange" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="iZK-By-Y9D">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
