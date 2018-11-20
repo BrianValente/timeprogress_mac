@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     public static var shared: AppDelegate?
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    var statusBarButton: NSStatusBarButton!
     var preferencesWindowController: NSWindowController?
     var progressBar: ProgressBar!
 
@@ -26,6 +27,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         preferencesWindowController = storyboard.instantiateController(withIdentifier: "Preferences") as? NSWindowController
         
         if let button = statusItem.button {
+            statusBarButton = button
+            
             progressBar = ProgressBar(frame: NSRect(x: 0, y: 0, width: button.frame.height * 1.5, height: button.frame.height * 0.5))
             
             progressBar.progress = CGFloat(getYearProgressPercentage()) / 100
@@ -48,10 +51,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 progressBar.centerY == button.centerY
             }
             
-            button.title = "        Year: \(getYearProgressPercentage())%"
+            //button.title = "        Year: \(getYearProgressPercentage())%"
             button.font = NSFont(name: "San Francisco", size: 1)
             button.action = #selector(onClick)
+            
+            updatePercentage(nil)
+            
+            Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updatePercentage), userInfo: nil, repeats: true)
         }
+    }
+    
+    @objc func updatePercentage(_ sender: Any?) {
+        statusBarButton.title = "         Year: \(getYearProgressPercentage())%"
     }
     
     @objc func onClick() {
