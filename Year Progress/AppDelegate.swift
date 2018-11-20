@@ -60,16 +60,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func openWindow() {
-        if let window = preferencesWindowController?.window, window.isVisible {
-            //preferencesWindowController?.window?.close()
-            if (!window.isKeyWindow) {
+        if let window = preferencesWindowController?.window {
+            if window.isVisible {
+                if (!window.isKeyWindow) {
+                    NSApp.activate(ignoringOtherApps: true)
+                    window.makeKeyAndOrderFront(nil)
+                } else {
+                    exit(0)
+                }
+            } else {
+                preferencesWindowController?.showWindow(self)
                 NSApp.activate(ignoringOtherApps: true)
                 window.makeKeyAndOrderFront(nil)
-            } else {
-                exit(0)
             }
-        } else {
-            preferencesWindowController?.showWindow(self)
         }
     }
     
