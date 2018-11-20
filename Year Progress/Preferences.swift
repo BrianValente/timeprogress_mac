@@ -53,29 +53,27 @@ class Preferences: NSViewController {
         
         githubButton.addGestureRecognizer(githubGesture)
         
-        if let color = UserDefaults.standard.string(forKey: "progressbar_color") {
-            switch color {
-            case "red":
-                red.state = NSControl.StateValue.on
-            case "green":
-                green.state = NSControl.StateValue.on
-            case "blue":
-                blue.state = NSControl.StateValue.on
-            case "yellow":
-                yellow.state = NSControl.StateValue.on
-            case "orange":
-                orange.state = NSControl.StateValue.on
-            case "purple":
-                purple.state = NSControl.StateValue.on
-            case "white":
-                white.state = NSControl.StateValue.on
-            case "gray":
-                gray.state = NSControl.StateValue.on
-            case "black":
-                black.state = NSControl.StateValue.on
-            default:
-                break
-            }
+        switch AppDelegate.shared?.getProgressBarColorName() {
+        case "red":
+            red.state = NSControl.StateValue.on
+        case "green":
+            green.state = NSControl.StateValue.on
+        case "blue":
+            blue.state = NSControl.StateValue.on
+        case "yellow":
+            yellow.state = NSControl.StateValue.on
+        case "orange":
+            orange.state = NSControl.StateValue.on
+        case "purple":
+            purple.state = NSControl.StateValue.on
+        case "white":
+            white.state = NSControl.StateValue.on
+        case "gray":
+            gray.state = NSControl.StateValue.on
+        case "black":
+            black.state = NSControl.StateValue.on
+        default:
+            break
         }
     }
 

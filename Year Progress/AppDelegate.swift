@@ -33,13 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             progressBar.progress = CGFloat(getYearProgressPercentage()) / 100
             progressBar.background = NSColor.gray.withAlphaComponent(0.35)
-            
-            if let color = UserDefaults.standard.string(forKey: "progressbar_color") {
-                print(color)
-                progressBar.foreground = getColorByName(color: color)!
-            } else {
-                progressBar.foreground = NSColor.gray
-            }
+            progressBar.foreground = getColorByName(color: getProgressBarColorName())!
             
             progressBar.borderColor = NSColor.clear
             progressBar.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +85,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let colorObj = getColorByName(color: color) {
             progressBar.foreground = colorObj
             UserDefaults.standard.setValue(color, forKey: "progressbar_color")
+        }
+    }
+    
+    func getProgressBarColorName() -> String {
+        if let color = UserDefaults.standard.string(forKey: "progressbar_color") {
+            return color
+        } else {
+            return "gray"
         }
     }
     
