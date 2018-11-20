@@ -87,7 +87,7 @@ class Preferences: NSViewController {
     }
     
     @objc  func openGithub(_ sender: Any) {
-        if let url = URL(string: "https://github.com/"),
+        if let url = URL(string: "https://github.com/brianvalente"),
             NSWorkspace.shared.open(url) {
             print("default browser was successfully opened")
         }
