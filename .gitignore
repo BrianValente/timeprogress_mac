@@ -2,3 +2,4 @@ Pods/
 Podfile.lock
 .DS_Store
 *xcworkspace/xcuserdata/*
+*xcodeproj/xcuserdata/*
