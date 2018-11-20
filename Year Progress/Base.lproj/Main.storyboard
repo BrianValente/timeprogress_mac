@@ -683,9 +683,9 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController storyboardIdentifier="Preferences" id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -701,24 +701,264 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Preferences-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Year_Progress" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="Preferences" customModule="Year_Progress" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="392" height="328"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-l4-GpV" customClass="ProgressBar" customModule="ProgressKit">
-                                <rect key="frame" x="159" y="175" width="121" height="8"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
+                            <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-fh-jRg">
+                                <rect key="frame" x="0.0" y="0.0" width="392" height="328"/>
+                            </visualEffectView>
+                            <gridView xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="5" columnSpacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-f1-Kal">
+                                <rect key="frame" x="20" y="132" width="270" height="68"/>
+                                <rows>
+                                    <gridRow bottomPadding="5" id="OXn-Tp-fLe"/>
+                                    <gridRow bottomPadding="5" id="GE1-iO-vps"/>
+                                    <gridRow id="32A-JL-1rO"/>
+                                </rows>
+                                <columns>
+                                    <gridColumn width="80" id="ZX5-D9-IhC"/>
+                                    <gridColumn width="80" id="cxv-bx-NgZ"/>
+                                    <gridColumn width="80" id="RiH-7d-of5"/>
+                                </columns>
+                                <gridCells>
+                                    <gridCell row="OXn-Tp-fLe" column="ZX5-D9-IhC" id="NPS-Iv-oxb">
+                                        <button key="contentView" identifier="red" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kI8-nH-Glb">
+                                            <rect key="frame" x="-1" y="51" width="46" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Red" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="CNO-te-pac">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="Po4-bl-iLH"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="OXn-Tp-fLe" column="cxv-bx-NgZ" id="RY0-KY-odZ">
+                                        <button key="contentView" identifier="green" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9op-nz-hPT">
+                                            <rect key="frame" x="94" y="51" width="59" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Green" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="s1M-0w-kba">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="2uH-I6-x8X"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="OXn-Tp-fLe" column="RiH-7d-of5" id="tgQ-I1-y6O">
+                                        <button key="contentView" identifier="blue" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Icf-FE-WlW">
+                                            <rect key="frame" x="189" y="51" width="49" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Blue" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="GdA-gY-fEx">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="gtY-4m-uFL"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="GE1-iO-vps" column="ZX5-D9-IhC" id="fo9-Qn-RUR">
+                                        <button key="contentView" identifier="yellow" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5YU-Do-A57">
+                                            <rect key="frame" x="-1" y="25" width="61" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Yellow" bezelStyle="regularSquare" imagePosition="left" alignment="left" identifier="yellow" inset="2" id="r2A-s7-RVS">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="GUk-vL-uOb"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="GE1-iO-vps" column="cxv-bx-NgZ" xPlacement="none" id="uiq-fW-Zoj">
+                                        <button key="contentView" identifier="orange" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zmj-MO-p9h">
+                                            <rect key="frame" x="94" y="25" width="67" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Orange" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="iZK-By-Y9D">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="Ft8-Yt-g3T"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="GE1-iO-vps" column="RiH-7d-of5" id="2nn-bo-bba">
+                                        <button key="contentView" identifier="purple" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gBf-0b-ZHc">
+                                            <rect key="frame" x="189" y="25" width="62" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Purple" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="4vU-ql-uyU">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="WHs-gz-xpV"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="32A-JL-1rO" column="ZX5-D9-IhC" id="5Vh-lz-C0o">
+                                        <button key="contentView" identifier="white" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X4E-To-tcX">
+                                            <rect key="frame" x="-1" y="-1" width="58" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="White" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ngj-jO-EKG">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="6lo-y5-rLv"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="32A-JL-1rO" column="cxv-bx-NgZ" id="4l5-FT-Cat">
+                                        <button key="contentView" identifier="gray" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vr4-xy-BZE">
+                                            <rect key="frame" x="94" y="-1" width="51" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Gray" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="EwW-xC-fxS">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="SOS-qe-jEt"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="32A-JL-1rO" column="RiH-7d-of5" id="YmQ-Dr-7Zf">
+                                        <button key="contentView" identifier="black" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eG2-tt-gxv">
+                                            <rect key="frame" x="189" y="-1" width="55" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Black" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="o4g-Ma-2DH">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onProgressBarColorChange:" target="XfG-lQ-9wD" id="3yJ-7t-DqZ"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                </gridCells>
+                            </gridView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-L7-9UM">
+                                <rect key="frame" x="18" y="215" width="167" height="22"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Progress Bar Color" id="cUI-MD-4bz">
+                                    <font key="font" metaFont="systemBold" size="18"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-pk-aGd">
+                                <rect key="frame" x="56" y="20" width="281" height="80"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n88-kl-IrA">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="22o-35-AMR"/>
+                                            <constraint firstAttribute="height" constant="80" id="RXg-eT-86C"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Brian" id="uag-Df-mjh"/>
+                                    </imageView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zM1-fY-FtJ">
+                                        <rect key="frame" x="88" y="17" width="193" height="47"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8cJ-ei-Lkw">
+                                                <rect key="frame" x="-2" y="25" width="197" height="22"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Made by Brian Valente" id="z68-m3-RTN">
+                                                    <font key="font" metaFont="systemBold" size="18"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0p-G1-vVa">
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="17"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ppC-So-pHU" customClass="NSButtonLabel" customModule="Year_Progress" customModuleProvider="target">
+                                                        <rect key="frame" x="-2" y="0.0" width="46" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Twitter" id="FwZ-m4-TKz">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1B9-1w-scV" customClass="NSButtonLabel" customModule="Year_Progress" customModuleProvider="target">
+                                                        <rect key="frame" x="48" y="0.0" width="47" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="GitHub" id="o3Q-VV-mPQ">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FEc-7P-poG">
+                                <rect key="frame" x="18" y="257" width="152" height="31"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Preferences" id="Ox7-Gv-xz4">
+                                    <font key="font" metaFont="systemBold" size="26"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="NTM-pk-aGd" secondAttribute="bottom" constant="20" id="7Ts-OE-Zc0"/>
+                            <constraint firstAttribute="trailing" secondItem="NTM-pk-aGd" secondAttribute="trailing" constant="55" id="9pp-ku-BAv"/>
+                            <constraint firstItem="ISc-fh-jRg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="IpN-dO-Y3A"/>
+                            <constraint firstAttribute="bottom" secondItem="ISc-fh-jRg" secondAttribute="bottom" id="K5r-oL-q8a"/>
+                            <constraint firstItem="ISc-fh-jRg" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="T9z-hP-BxE"/>
+                            <constraint firstItem="NTM-pk-aGd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="56" id="ZyR-IM-7Z8"/>
+                            <constraint firstItem="ClP-f1-Kal" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="ccG-kY-4o1"/>
+                            <constraint firstItem="FEc-7P-poG" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="dud-cc-UwH"/>
+                            <constraint firstItem="FEc-7P-poG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="loj-JT-eA7"/>
+                            <constraint firstItem="dhr-L7-9UM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="n8W-cY-Wjv"/>
+                            <constraint firstItem="dhr-L7-9UM" firstAttribute="top" secondItem="FEc-7P-poG" secondAttribute="bottom" constant="20" id="pri-A6-fDL"/>
+                            <constraint firstItem="ClP-f1-Kal" firstAttribute="top" secondItem="dhr-L7-9UM" secondAttribute="bottom" constant="15" id="rcb-hA-A0D"/>
+                            <constraint firstAttribute="trailing" secondItem="ISc-fh-jRg" secondAttribute="trailing" id="uL7-gD-UpT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="black" destination="eG2-tt-gxv" id="aCz-Ss-vNe"/>
+                        <outlet property="blue" destination="Icf-FE-WlW" id="W6s-8K-OxG"/>
+                        <outlet property="githubButton" destination="1B9-1w-scV" id="tpK-NL-VXn"/>
+                        <outlet property="gray" destination="vr4-xy-BZE" id="oRy-uH-At8"/>
+                        <outlet property="green" destination="9op-nz-hPT" id="9fA-j4-0ly"/>
+                        <outlet property="orange" destination="Zmj-MO-p9h" id="Xqh-MH-BML"/>
+                        <outlet property="purple" destination="gBf-0b-ZHc" id="rED-Oy-H3G"/>
+                        <outlet property="red" destination="kI8-nH-Glb" id="Xqh-Ea-438"/>
+                        <outlet property="twitterButton" destination="ppC-So-pHU" id="eOE-oC-FM8"/>
+                        <outlet property="white" destination="X4E-To-tcX" id="I0y-8C-hGn"/>
+                        <outlet property="yellow" destination="5YU-Do-A57" id="a68-Dd-fCF"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="31" y="684"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Brian" width="350" height="350"/>
+    </resources>
 </document>
