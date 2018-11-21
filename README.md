@@ -1,4 +1,4 @@
-# Year Progress for Mac
+# Time Progress for Mac
 
 See the progress of the year right in your menu bar!
 <p align="center">

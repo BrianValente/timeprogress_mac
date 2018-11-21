@@ -7,25 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38EFF300D3A93D86029E27A1 /* Pods_Time_Progress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350F8373A666A8FFF9E65B2 /* Pods_Time_Progress.framework */; };
 		4A21BFFB21A3D38000BDC4F9 /* NSButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21BFFA21A3D38000BDC4F9 /* NSButtonLabel.swift */; };
+		4A6E5A1521A4EEF9000FFA44 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E5A1421A4EEF9000FFA44 /* DateExtensions.swift */; };
 		4AF1127321A2B515005619FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1127221A2B515005619FB /* AppDelegate.swift */; };
 		4AF1127521A2B515005619FB /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1127421A2B515005619FB /* Preferences.swift */; };
 		4AF1127721A2B516005619FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF1127621A2B516005619FB /* Assets.xcassets */; };
 		4AF1127A21A2B517005619FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF1127821A2B517005619FB /* Main.storyboard */; };
-		B8C4098F2F2ACC3C1FB5E312 /* Pods_Year_Progress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAD1B3A332C02F70663B7D2 /* Pods_Year_Progress.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0350F8373A666A8FFF9E65B2 /* Pods_Time_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06F3C8C0178931423963D702 /* Pods-Time Progress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Progress.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time Progress/Pods-Time Progress.release.xcconfig"; sourceTree = "<group>"; };
 		3FAD1B3A332C02F70663B7D2 /* Pods_Year_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Year_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A21BFFA21A3D38000BDC4F9 /* NSButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonLabel.swift; sourceTree = "<group>"; };
-		4A21BFFC21A3D70A00BDC4F9 /* Year Progress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Year Progress.entitlements"; sourceTree = "<group>"; };
-		4AF1126F21A2B515005619FB /* Year Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Year Progress.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A21BFFC21A3D70A00BDC4F9 /* Time Progress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Time Progress.entitlements"; sourceTree = "<group>"; };
+		4A6E5A1421A4EEF9000FFA44 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		4AF1126F21A2B515005619FB /* Time Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Progress.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF1127221A2B515005619FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF1127421A2B515005619FB /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		4AF1127621A2B516005619FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AF1127921A2B517005619FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AF1127B21A2B517005619FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AF1128221A2D2A5005619FB /* ProgressKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProgressKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B61F577492723CAB713CA2A /* Pods-Time Progress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Progress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time Progress/Pods-Time Progress.debug.xcconfig"; sourceTree = "<group>"; };
 		A62FE1F5C08DC2411C37AB28 /* Pods-Year Progress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Year Progress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Year Progress/Pods-Year Progress.debug.xcconfig"; sourceTree = "<group>"; };
 		D1EAD71FEF2CD3CE5C6EF873 /* Pods-Year Progress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Year Progress.release.xcconfig"; path = "Pods/Target Support Files/Pods-Year Progress/Pods-Year Progress.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -35,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C4098F2F2ACC3C1FB5E312 /* Pods_Year_Progress.framework in Frameworks */,
+				38EFF300D3A93D86029E27A1 /* Pods_Time_Progress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +50,7 @@
 		4AF1126621A2B515005619FB = {
 			isa = PBXGroup;
 			children = (
-				4AF1127121A2B515005619FB /* Year Progress */,
+				4AF1127121A2B515005619FB /* Time Progress */,
 				4AF1127021A2B515005619FB /* Products */,
 				C61629EB59445CC771FE1242 /* Pods */,
 				CC25500D89D528573CFBBABA /* Frameworks */,
@@ -55,23 +60,24 @@
 		4AF1127021A2B515005619FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4AF1126F21A2B515005619FB /* Year Progress.app */,
+				4AF1126F21A2B515005619FB /* Time Progress.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4AF1127121A2B515005619FB /* Year Progress */ = {
+		4AF1127121A2B515005619FB /* Time Progress */ = {
 			isa = PBXGroup;
 			children = (
-				4A21BFFC21A3D70A00BDC4F9 /* Year Progress.entitlements */,
+				4A21BFFC21A3D70A00BDC4F9 /* Time Progress.entitlements */,
 				4AF1127221A2B515005619FB /* AppDelegate.swift */,
 				4AF1127421A2B515005619FB /* Preferences.swift */,
+				4A6E5A1421A4EEF9000FFA44 /* DateExtensions.swift */,
 				4AF1127621A2B516005619FB /* Assets.xcassets */,
 				4AF1127821A2B517005619FB /* Main.storyboard */,
 				4AF1127B21A2B517005619FB /* Info.plist */,
 				4A21BFFA21A3D38000BDC4F9 /* NSButtonLabel.swift */,
 			);
-			path = "Year Progress";
+			path = "Time Progress";
 			sourceTree = "<group>";
 		};
 		C61629EB59445CC771FE1242 /* Pods */ = {
@@ -79,6 +85,8 @@
 			children = (
 				A62FE1F5C08DC2411C37AB28 /* Pods-Year Progress.debug.xcconfig */,
 				D1EAD71FEF2CD3CE5C6EF873 /* Pods-Year Progress.release.xcconfig */,
+				4B61F577492723CAB713CA2A /* Pods-Time Progress.debug.xcconfig */,
+				06F3C8C0178931423963D702 /* Pods-Time Progress.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -88,6 +96,7 @@
 			children = (
 				4AF1128221A2D2A5005619FB /* ProgressKit.framework */,
 				3FAD1B3A332C02F70663B7D2 /* Pods_Year_Progress.framework */,
+				0350F8373A666A8FFF9E65B2 /* Pods_Time_Progress.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4AF1126E21A2B515005619FB /* Year Progress */ = {
+		4AF1126E21A2B515005619FB /* Time Progress */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AF1127F21A2B517005619FB /* Build configuration list for PBXNativeTarget "Year Progress" */;
+			buildConfigurationList = 4AF1127F21A2B517005619FB /* Build configuration list for PBXNativeTarget "Time Progress" */;
 			buildPhases = (
 				3D03DCD4B6B805022553CFCA /* [CP] Check Pods Manifest.lock */,
 				4AF1126B21A2B515005619FB /* Sources */,
@@ -109,9 +118,9 @@
 			);
 			dependencies = (
 			);
-			name = "Year Progress";
+			name = "Time Progress";
 			productName = "Year Progress";
-			productReference = 4AF1126F21A2B515005619FB /* Year Progress.app */;
+			productReference = 4AF1126F21A2B515005619FB /* Time Progress.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4AF1126A21A2B515005619FB /* Build configuration list for PBXProject "Year Progress" */;
+			buildConfigurationList = 4AF1126A21A2B515005619FB /* Build configuration list for PBXProject "Time Progress" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -147,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4AF1126E21A2B515005619FB /* Year Progress */,
+				4AF1126E21A2B515005619FB /* Time Progress */,
 			);
 		};
 /* End PBXProject section */
@@ -176,7 +185,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Year Progress-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Time Progress-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -189,7 +198,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Year Progress/Pods-Year Progress-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Time Progress/Pods-Time Progress-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressKit/ProgressKit.framework",
 			);
@@ -200,7 +209,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Year Progress/Pods-Year Progress-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Time Progress/Pods-Time Progress-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -211,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AF1127521A2B515005619FB /* Preferences.swift in Sources */,
+				4A6E5A1521A4EEF9000FFA44 /* DateExtensions.swift in Sources */,
 				4A21BFFB21A3D38000BDC4F9 /* NSButtonLabel.swift in Sources */,
 				4AF1127321A2B515005619FB /* AppDelegate.swift in Sources */,
 			);
@@ -347,21 +357,21 @@
 		};
 		4AF1128021A2B517005619FB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A62FE1F5C08DC2411C37AB28 /* Pods-Year Progress.debug.xcconfig */;
+			baseConfigurationReference = 4B61F577492723CAB713CA2A /* Pods-Time Progress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Year Progress/Year Progress.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Time Progress/Time Progress.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 774TKFHL7M;
-				INFOPLIST_FILE = "Year Progress/Info.plist";
+				INFOPLIST_FILE = "Time Progress/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brianvalente.Year-Progress";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianvalente.Progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -370,21 +380,21 @@
 		};
 		4AF1128121A2B517005619FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1EAD71FEF2CD3CE5C6EF873 /* Pods-Year Progress.release.xcconfig */;
+			baseConfigurationReference = 06F3C8C0178931423963D702 /* Pods-Time Progress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Year Progress/Year Progress.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Time Progress/Time Progress.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 774TKFHL7M;
-				INFOPLIST_FILE = "Year Progress/Info.plist";
+				INFOPLIST_FILE = "Time Progress/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brianvalente.Year-Progress";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianvalente.Progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -394,7 +404,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4AF1126A21A2B515005619FB /* Build configuration list for PBXProject "Year Progress" */ = {
+		4AF1126A21A2B515005619FB /* Build configuration list for PBXProject "Time Progress" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AF1127D21A2B517005619FB /* Debug */,
@@ -403,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AF1127F21A2B517005619FB /* Build configuration list for PBXNativeTarget "Year Progress" */ = {
+		4AF1127F21A2B517005619FB /* Build configuration list for PBXNativeTarget "Time Progress" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AF1128021A2B517005619FB /* Debug */,
