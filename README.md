@@ -6,5 +6,9 @@ See the progress of the year right in your menu bar!
 </p>
 
 <p align="center">
+  <img align="center" src="screenshots/03.png">
+</p>
+
+<p align="center">
   <img align="center" src="screenshots/02.png">
 </p>
