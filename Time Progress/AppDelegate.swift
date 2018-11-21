@@ -253,13 +253,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func getMonthProgressPercentage() -> Int {
         let date = Date()
-        let start = date.startOfMonth().timeIntervalSince1970
-        let end = date.endOfMonth().timeIntervalSince1970
-        let now = date.timeIntervalSince1970
-        print(start, end, now)
-
         
-        let percentage = ((end - now) * 100) / (end - start)
+        let start = date.startOfMonth().timeIntervalSince1970
+        let end = date.endOfMonth().dayAfter.timeIntervalSince1970
+        let now = date.timeIntervalSince1970
+        
+        let monthSeconds = end - start
+        let calcNow = now - start
+        
+        let percentage = (calcNow * 100) / monthSeconds
         
         return Int(percentage)
     }
