@@ -254,8 +254,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func getMonthProgressPercentage() -> Int {
         let date = Date()
         
-        let start = date.startOfMonth().timeIntervalSince1970
-        let end = date.endOfMonth().dayAfter.timeIntervalSince1970
+        let start = date.startOfMonth().midnight.timeIntervalSince1970
+        let end = date.endOfMonth().dayAfter.midnight.timeIntervalSince1970
         let now = date.timeIntervalSince1970
         
         let monthSeconds = end - start
@@ -268,29 +268,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func getWeekProgressPercentage() -> Int {
         let date = Date()
-        let monday = date.previous(.monday).timeIntervalSince1970
-        let sunday = date.next(.sunday).timeIntervalSince1970
+        let thisWeek = date.previous(.monday).midnight.timeIntervalSince1970
+        let nextWeek = date.next(.monday).midnight.timeIntervalSince1970
         let now = date.timeIntervalSince1970
         
-        let percentage = ((now - monday) * 100) / (sunday - now)
+        let weekSeconds = nextWeek - thisWeek
+        let calcNow = now - thisWeek
+        
+        let percentage = (calcNow * 100) / weekSeconds
         
         return Int(percentage)
     }
     
     func getDayProgressPercentage() -> Int {
-        let date = Date()
-        let calendar = Calendar.current
-        let year = calendar.component(Calendar.Component.year, from: date)
-        let month = calendar.component(Calendar.Component.month, from: date)
-        let day = calendar.component(Calendar.Component.day, from: date)
+        let today = Date().midnight.timeIntervalSince1970
+        let tomorrow = Date.tomorrow.timeIntervalSince1970
+        let now = Date().timeIntervalSince1970
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let today = formatter.date(from: "\(year)-\(month)-\(day) 00:00:00")!.timeIntervalSince1970
-        let tomorrow = today + 86400
-        let now = date.timeIntervalSince1970
+        let daySeconds = tomorrow - today
+        let calcNow = now - today
         
-        let percentage = ((now - today) * 100) / (tomorrow - today)
+        let percentage = (calcNow * 100) / daySeconds
         
         return Int(percentage)
     }

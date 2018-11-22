@@ -106,19 +106,22 @@ extension Date {
 
 extension Date {
     static var yesterday: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: Date().noon)!
+        return Calendar.current.date(byAdding: .day, value: -1, to: Date().midnight)!
     }
     static var tomorrow: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: Date().noon)!
+        return Calendar.current.date(byAdding: .day, value: 1, to: Date().midnight)!
     }
     var dayBefore: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+        return Calendar.current.date(byAdding: .day, value: -1, to: midnight)!
     }
     var dayAfter: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+        return Calendar.current.date(byAdding: .day, value: 1, to: midnight)!
     }
     var noon: Date {
         return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var midnight: Date {
+        return Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: self)!
     }
     var month: Int {
         return Calendar.current.component(.month,  from: self)
