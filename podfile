@@ -2,4 +2,5 @@ target 'Time Progress' do
   use_frameworks!
   pod 'Cartography', '~> 3.0'
   pod 'ProgressKit', :git => "https://github.com/kaunteya/ProgressKit.git"
+  pod 'LoginServiceKit', :git => 'https://github.com/Clipy/LoginServiceKit.git'
 end

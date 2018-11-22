@@ -8,6 +8,8 @@
 
 import Cocoa
 
+import LoginServiceKit
+
 class Preferences: NSViewController {
     
 //    override func loadView() {
@@ -31,6 +33,7 @@ class Preferences: NSViewController {
     @IBOutlet weak var gray: NSButton!
     @IBOutlet weak var black: NSButton!
     
+    @IBOutlet weak var launchAtLogin: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +78,20 @@ class Preferences: NSViewController {
         default:
             break
         }
+        
+        launchAtLogin.state = LoginServiceKit.isExistLoginItems() ? .on : .off
     }
-
+    
+    @IBAction func launchAtLogin(_ sender: NSButton) {
+        if LoginServiceKit.isExistLoginItems() {
+            LoginServiceKit.removeLoginItems()
+        } else {
+            LoginServiceKit.addLoginItems()
+        }
+                
+        sender.state = LoginServiceKit.isExistLoginItems() ? .on : .off
+    }
+    
     @objc func openTwitterProfile(_ sender: Any) {
         if let url = URL(string: "https://twitter.com/briannvalente"),
             NSWorkspace.shared.open(url) {

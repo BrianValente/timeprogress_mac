@@ -706,92 +706,22 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="Preferences" customModule="Time_Progress" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="280"/>
+                        <rect key="frame" x="0.0" y="0.0" width="392" height="420"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-fh-jRg">
-                                <rect key="frame" x="0.0" y="0.0" width="392" height="280"/>
-                                <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-pk-aGd">
-                                        <rect key="frame" x="56" y="20" width="281" height="80"/>
-                                        <subviews>
-                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n88-kl-IrA">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="22o-35-AMR"/>
-                                                    <constraint firstAttribute="height" constant="80" id="RXg-eT-86C"/>
-                                                </constraints>
-                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Brian" id="uag-Df-mjh"/>
-                                            </imageView>
-                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zM1-fY-FtJ">
-                                                <rect key="frame" x="88" y="17" width="193" height="47"/>
-                                                <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8cJ-ei-Lkw">
-                                                        <rect key="frame" x="-2" y="25" width="197" height="22"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Made by Brian Valente" id="z68-m3-RTN">
-                                                            <font key="font" metaFont="systemBold" size="18"/>
-                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0p-G1-vVa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="93" height="17"/>
-                                                        <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ppC-So-pHU" customClass="NSButtonLabel" customModule="Time_Progress" customModuleProvider="target">
-                                                                <rect key="frame" x="-2" y="0.0" width="46" height="17"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Twitter" id="FwZ-m4-TKz">
-                                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                                    <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1B9-1w-scV" customClass="NSButtonLabel" customModule="Time_Progress" customModuleProvider="target">
-                                                                <rect key="frame" x="48" y="0.0" width="47" height="17"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="GitHub" id="o3Q-VV-mPQ">
-                                                                    <font key="font" metaFont="system"/>
-                                                                    <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                        </subviews>
-                                                        <visibilityPriorities>
-                                                            <integer value="1000"/>
-                                                            <integer value="1000"/>
-                                                        </visibilityPriorities>
-                                                        <customSpacing>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                        </customSpacing>
-                                                    </stackView>
-                                                </subviews>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
-                                            </stackView>
-                                        </subviews>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="NTM-pk-aGd" firstAttribute="leading" secondItem="ISc-fh-jRg" secondAttribute="leading" constant="56" id="0e3-Lr-YWS"/>
-                                    <constraint firstAttribute="bottom" secondItem="NTM-pk-aGd" secondAttribute="bottom" constant="20" id="FzI-f0-SuJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="NTM-pk-aGd" secondAttribute="trailing" constant="55" id="ta7-cc-lw0"/>
-                                </constraints>
+                            <visualEffectView focusRingType="none" appearanceType="inheritedVibrantLight" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-fh-jRg">
+                                <rect key="frame" x="0.0" y="0.0" width="392" height="420"/>
                             </visualEffectView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-L7-9UM">
+                                <rect key="frame" x="18" y="358" width="167" height="22"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Progress Bar Color" id="cUI-MD-4bz">
+                                    <font key="font" metaFont="systemBold" size="18"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <gridView xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="5" columnSpacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-f1-Kal">
-                                <rect key="frame" x="20" y="135" width="270" height="68"/>
+                                <rect key="frame" x="20" y="275" width="270" height="68"/>
                                 <rows>
                                     <gridRow bottomPadding="5" id="OXn-Tp-fLe"/>
                                     <gridRow bottomPadding="5" id="GE1-iO-vps"/>
@@ -913,24 +843,132 @@
                                     </gridCell>
                                 </gridCells>
                             </gridView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-L7-9UM">
-                                <rect key="frame" x="18" y="218" width="167" height="22"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Progress Bar Color" id="cUI-MD-4bz">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VNP-4B-Fmg">
+                                <rect key="frame" x="18" y="228" width="150" height="22"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Custom deadline" id="Cnj-e5-UwB">
                                     <font key="font" metaFont="systemBold" size="18"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qjr-mx-CZr">
+                                <rect key="frame" x="18" y="201" width="88" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Coming soon!" id="aQt-32-M7T">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g20-24-0If">
+                                <rect key="frame" x="18" y="154" width="128" height="22"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Miscellaneous" id="HDg-Ca-XJG">
+                                    <font key="font" metaFont="systemBold" size="18"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-R7-cA6">
+                                <rect key="frame" x="18" y="123" width="119" height="18"/>
+                                <buttonCell key="cell" type="check" title="Launch at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="drf-Zj-Bdb">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="launchAtLogin:" target="XfG-lQ-9wD" id="yom-ca-De2"/>
+                                </connections>
+                            </button>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-pk-aGd">
+                                <rect key="frame" x="55" y="20" width="281" height="80"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n88-kl-IrA">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="22o-35-AMR"/>
+                                            <constraint firstAttribute="height" constant="80" id="RXg-eT-86C"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Brian" id="uag-Df-mjh"/>
+                                    </imageView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zM1-fY-FtJ">
+                                        <rect key="frame" x="88" y="17" width="193" height="47"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8cJ-ei-Lkw">
+                                                <rect key="frame" x="-2" y="25" width="197" height="22"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Made by Brian Valente" id="z68-m3-RTN">
+                                                    <font key="font" metaFont="systemBold" size="18"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0p-G1-vVa">
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="17"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ppC-So-pHU" customClass="NSButtonLabel" customModule="Time_Progress" customModuleProvider="target">
+                                                        <rect key="frame" x="-2" y="0.0" width="46" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Twitter" id="FwZ-m4-TKz">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1B9-1w-scV" customClass="NSButtonLabel" customModule="Time_Progress" customModuleProvider="target">
+                                                        <rect key="frame" x="48" y="0.0" width="47" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="GitHub" id="o3Q-VV-mPQ">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="g20-24-0If" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="3H6-qD-jF9"/>
+                            <constraint firstItem="M2b-R7-cA6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="70y-pi-DWE"/>
+                            <constraint firstItem="qjr-mx-CZr" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="84B-cp-ySF"/>
                             <constraint firstItem="ISc-fh-jRg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="IpN-dO-Y3A"/>
                             <constraint firstAttribute="bottom" secondItem="ISc-fh-jRg" secondAttribute="bottom" id="K5r-oL-q8a"/>
+                            <constraint firstItem="g20-24-0If" firstAttribute="top" secondItem="qjr-mx-CZr" secondAttribute="bottom" constant="25" id="Llk-aX-oQs"/>
+                            <constraint firstItem="VNP-4B-Fmg" firstAttribute="top" secondItem="ClP-f1-Kal" secondAttribute="bottom" constant="25" id="Lzq-iP-cZe"/>
                             <constraint firstItem="ISc-fh-jRg" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="T9z-hP-BxE"/>
+                            <constraint firstItem="VNP-4B-Fmg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="TPY-vF-IQR"/>
+                            <constraint firstItem="NTM-pk-aGd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="55" id="V4d-9c-cg6"/>
+                            <constraint firstAttribute="bottom" secondItem="NTM-pk-aGd" secondAttribute="bottom" constant="20" id="amm-MA-1I7"/>
                             <constraint firstItem="ClP-f1-Kal" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="ccG-kY-4o1"/>
                             <constraint firstItem="dhr-L7-9UM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="hhI-Dq-P3j"/>
                             <constraint firstItem="dhr-L7-9UM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="n8W-cY-Wjv"/>
                             <constraint firstItem="ClP-f1-Kal" firstAttribute="top" secondItem="dhr-L7-9UM" secondAttribute="bottom" constant="15" id="rcb-hA-A0D"/>
+                            <constraint firstItem="qjr-mx-CZr" firstAttribute="top" secondItem="VNP-4B-Fmg" secondAttribute="bottom" constant="10" id="sM0-3s-Sfj"/>
                             <constraint firstAttribute="trailing" secondItem="ISc-fh-jRg" secondAttribute="trailing" id="uL7-gD-UpT"/>
+                            <constraint firstAttribute="trailing" secondItem="NTM-pk-aGd" secondAttribute="trailing" constant="56" id="wFs-zO-2Nn"/>
+                            <constraint firstItem="M2b-R7-cA6" firstAttribute="top" secondItem="g20-24-0If" secondAttribute="bottom" constant="15" id="wuY-pb-xqx"/>
                         </constraints>
                     </view>
                     <connections>
@@ -939,6 +977,7 @@
                         <outlet property="githubButton" destination="1B9-1w-scV" id="tpK-NL-VXn"/>
                         <outlet property="gray" destination="vr4-xy-BZE" id="oRy-uH-At8"/>
                         <outlet property="green" destination="9op-nz-hPT" id="9fA-j4-0ly"/>
+                        <outlet property="launchAtLogin" destination="M2b-R7-cA6" id="uEg-ym-rYc"/>
                         <outlet property="orange" destination="Zmj-MO-p9h" id="Xqh-MH-BML"/>
                         <outlet property="purple" destination="gBf-0b-ZHc" id="rED-Oy-H3G"/>
                         <outlet property="red" destination="kI8-nH-Glb" id="Xqh-Ea-438"/>
@@ -949,7 +988,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31" y="684"/>
+            <point key="canvasLocation" x="75" y="670.5"/>
         </scene>
     </scenes>
     <resources>

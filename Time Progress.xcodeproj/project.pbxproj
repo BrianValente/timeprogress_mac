@@ -23,6 +23,9 @@
 		4A21BFFA21A3D38000BDC4F9 /* NSButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonLabel.swift; sourceTree = "<group>"; };
 		4A21BFFC21A3D70A00BDC4F9 /* Time Progress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Time Progress.entitlements"; sourceTree = "<group>"; };
 		4A6E5A1421A4EEF9000FFA44 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		4A8B4B6B21A64E21001DDC41 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAtLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A8B4B6D21A64EAF001DDC41 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAtLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ACCB55D21A6500E002F3D90 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAtLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF1126F21A2B515005619FB /* Time Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Progress.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF1127221A2B515005619FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF1127421A2B515005619FB /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -94,6 +97,9 @@
 		CC25500D89D528573CFBBABA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ACCB55D21A6500E002F3D90 /* LaunchAtLogin.framework */,
+				4A8B4B6D21A64EAF001DDC41 /* LaunchAtLogin.framework */,
+				4A8B4B6B21A64E21001DDC41 /* LaunchAtLogin.framework */,
 				4AF1128221A2D2A5005619FB /* ProgressKit.framework */,
 				3FAD1B3A332C02F70663B7D2 /* Pods_Year_Progress.framework */,
 				0350F8373A666A8FFF9E65B2 /* Pods_Time_Progress.framework */,
@@ -200,11 +206,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Time Progress/Pods-Time Progress-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
+				"${BUILT_PRODUCTS_DIR}/LoginServiceKit/LoginServiceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressKit/ProgressKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoginServiceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
