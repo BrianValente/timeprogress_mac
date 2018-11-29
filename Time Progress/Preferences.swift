@@ -10,15 +10,7 @@ import Cocoa
 
 import LoginServiceKit
 
-class Preferences: NSViewController {
-    
-//    override func loadView() {
-//        let view = NSView(frame: NSMakeRect(0,0,100,100))
-//        view.wantsLayer = true
-//        view.layer?.borderWidth = 2
-//        view.layer?.borderColor = NSColor.red.cgColor
-//        self.view = view
-//    }
+class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerCellDelegate {
     
     @IBOutlet weak var twitterButton: NSButtonLabel!
     @IBOutlet weak var githubButton: NSButtonLabel!
@@ -34,6 +26,12 @@ class Preferences: NSViewController {
     @IBOutlet weak var black: NSButton!
     
     @IBOutlet weak var launchAtLogin: NSButton!
+    
+    @IBOutlet weak var customDeadlineName: NSTextField!
+    @IBOutlet weak var customDeadlineTimeFrom: NSDatePicker!
+    @IBOutlet weak var customDeadlineTimeTo: NSDatePicker!
+    
+    @IBOutlet weak var progressBarVisible: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +78,34 @@ class Preferences: NSViewController {
         }
         
         launchAtLogin.state = LoginServiceKit.isExistLoginItems() ? .on : .off
+        
+        progressBarVisible.state = AppDelegate.shared!.getProgressBarVisibility() ? .on : .off
+        
+        initCustomDeadline()
+    }
+    
+    func initCustomDeadline() {
+        customDeadlineName.stringValue = CustomDeadline.name
+        //customDeadlineTimeFrom.stringValue = (AppDelegate.shared?.getCustomDeadlineTimeFrom())!
+        //customDeadlineTimeTo.stringValue = (AppDelegate.shared?.getCustomDeadlineTimeTo())!
+        
+        guard
+            let from = CustomDeadline.from,
+            let to = CustomDeadline.to
+            else {
+                return
+        }
+        
+        customDeadlineTimeFrom.dateValue = from
+        customDeadlineTimeTo.dateValue = to
+    }
+    
+    func controlTextDidChange(_ obj: Notification) {
+        if let textField = obj.object as? NSTextField {
+            if (textField == customDeadlineName) {
+                CustomDeadline.name = textField.stringValue
+            }
+        }
     }
     
     @IBAction func launchAtLogin(_ sender: NSButton) {
@@ -90,6 +116,18 @@ class Preferences: NSViewController {
         }
                 
         sender.state = LoginServiceKit.isExistLoginItems() ? .on : .off
+    }
+    
+    @IBAction func onCustomDeadlineTimeFromChange(_ sender: NSDatePicker) {
+        CustomDeadline.from = sender.dateValue
+    }
+    
+    @IBAction func onCustomDeadlineTimeToChange(_ sender: NSDatePicker) {
+        CustomDeadline.to = sender.dateValue
+    }
+    
+    @IBAction func onProgressBarVisibleChange(_ sender: NSButton) {
+        AppDelegate.shared!.setProgressBarVisibility(bool: sender.state == NSControl.StateValue.on)
     }
     
     @objc func openTwitterProfile(_ sender: Any) {

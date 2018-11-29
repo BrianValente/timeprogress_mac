@@ -130,3 +130,16 @@ extension Date {
         return dayAfter.month != month
     }
 }
+
+
+
+// Own
+extension Date {
+    var day: Int {
+        return Calendar.current.component(Calendar.Component.day, from: self)
+    }
+    
+    var year: Int {
+        return Calendar.current.component(Calendar.Component.year, from: self)
+    }
+}

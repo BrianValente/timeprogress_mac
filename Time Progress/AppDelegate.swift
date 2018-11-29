@@ -18,12 +18,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     var statusBarButton: NSStatusBarButton!
     var preferencesWindowController: NSWindowController?
-    var progressBar: ProgressBar!
+    var progressBar: ProgressBar?
     
     var dayMenuItem: NSMenuItem!
     var weekMenuItem: NSMenuItem!
     var monthMenuItem: NSMenuItem!
     var yearMenuItem: NSMenuItem!
+    var customMenuItem: NSMenuItem!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         AppDelegate.shared = self
@@ -31,46 +32,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         preferencesWindowController = storyboard.instantiateController(withIdentifier: "Preferences") as? NSWindowController
         
+        renderMenuBar()
+    }
+    
+    func renderMenuBar() {
         if let button = statusItem.button {
             statusBarButton = button
             
-            progressBar = ProgressBar(frame: NSRect(x: 0, y: 0, width: button.frame.height * 1.5, height: button.frame.height * 0.5))
-            
-            progressBar.progress = CGFloat(getYearProgressPercentage()) / 100
-            progressBar.background = NSColor.gray.withAlphaComponent(0.35)
-            progressBar.foreground = getColorByName(color: getProgressBarColorName())!
-            
-            progressBar.borderColor = NSColor.clear
-            progressBar.translatesAutoresizingMaskIntoConstraints = false
-            button.addSubview(progressBar)
-            
-            constrain(button, progressBar) { button, progressBar in
-                progressBar.height == button.height * 0.5
-                progressBar.width == button.height * 1.5
-                progressBar.centerY == button.centerY
-            }
-            
-            //button.title = "        Year: \(getYearProgressPercentage())%"
-            button.font = NSFont(name: "San Francisco", size: 1)
-            //button.action = #selector(onClick)
+            statusBarButton.font = NSFont(name: "San Francisco", size: 1)
             
             updatePercentage(nil)
             
             Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatePercentage), userInfo: nil, repeats: true)
             
             addMenu()
+            loadProgressBarVisibility()
         }
     }
     
     @objc func updatePercentage(_ sender: Any?) {
         let value = getCurrentModeValue()
-        statusBarButton.title = "         \(getCurrentModeName()): \(value)%"
-        progressBar.progress = CGFloat(value) / 100
-    }
-    
-    @objc func onClick() {
-        openWindow()
-        //exit(0)
+        let stringValue = getCurrentModeStringValue()
+        let before = getProgressBarVisibility() ? "          " : ""
+        statusBarButton.title = "\(before)\(getCurrentModeName()): \(stringValue)"
+        progressBar?.progress = CGFloat(value) / 100
     }
     
     func getCurrentModeName() -> String {
@@ -83,8 +68,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return "Month"
         case "year":
             return "Year"
+        case "custom":
+            return CustomDeadline.name
         default:
             return ""
+        }
+    }
+    
+    func getCurrentModeStringValue() -> String {
+        switch getCurrentMode() {
+        case "day":
+            return String(getDayProgressPercentage()) + "%"
+        case "week":
+            return String(getWeekProgressPercentage()) + "%"
+        case "month":
+            return String(getMonthProgressPercentage()) + "%"
+        case "year":
+            return String(getYearProgressPercentage()) + "%"
+        case "custom":
+            return CustomDeadline.stringValue
+        default:
+            return "-1%"
         }
     }
     
@@ -98,8 +102,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return getMonthProgressPercentage()
         case "year":
             return getYearProgressPercentage()
+        case "custom":
+            return CustomDeadline.percentage
         default:
-            return 4
+            return 69
         }
     }
     
@@ -111,27 +117,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    func openWindow() {
-        if let window = preferencesWindowController?.window {
-            if window.isVisible {
-                if (!window.isKeyWindow) {
-                    NSApp.activate(ignoringOtherApps: true)
-                    window.makeKeyAndOrderFront(nil)
-                } else {
-                    exit(0)
-                }
-            } else {
-                preferencesWindowController?.showWindow(self)
-                NSApp.activate(ignoringOtherApps: true)
-                window.makeKeyAndOrderFront(nil)
-            }
-        }
-    }
-    
     @objc func openPreferences(_ sender: Any?) {
         if let window = preferencesWindowController?.window {
             if window.isVisible {
-                //if (!window.isKeyWindow) {
                 NSApp.activate(ignoringOtherApps: true)
                 window.makeKeyAndOrderFront(nil)
             } else {
@@ -149,8 +137,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         weekMenuItem.state = .off
         monthMenuItem.state = .off
         yearMenuItem.state = .off
+        customMenuItem.state = .off
         
         sender.state = .on
+    }
+    
+    func getProgressBarVisibility() -> Bool {
+        return (UserDefaults.standard.object(forKey: "progressbar.visible") as? Bool) ?? true
+    }
+    
+    func setProgressBarVisibility(bool: Bool) {
+        UserDefaults.standard.setValue(bool, forKey: "progressbar.visible")
+        loadProgressBarVisibility()
+    }
+    
+    func loadProgressBarVisibility() {
+        if getProgressBarVisibility() && progressBar == nil {
+            progressBar = ProgressBar(frame: NSRect(x: 0, y: 0, width: statusBarButton.frame.height * 1.5, height: statusBarButton.frame.height * 0.6))
+            
+            progressBar!.progress = CGFloat(getYearProgressPercentage()) / 100
+            progressBar!.background = NSColor.gray.withAlphaComponent(0.35)
+            progressBar!.foreground = getColorByName(color: getProgressBarColorName())!
+            
+            progressBar!.borderColor = NSColor.clear
+            progressBar!.translatesAutoresizingMaskIntoConstraints = false
+            
+            statusBarButton.addSubview(progressBar!)
+            
+            constrain(statusBarButton, progressBar!) { button, progressBar in
+                progressBar.height == button.height * 0.6
+                progressBar.width == button.height * 1.5
+                progressBar.centerY == button.centerY
+                progressBar.left == button.left + 5
+            }
+        } else {
+            progressBar?.removeFromSuperview()
+            progressBar = nil
+        }
+        updatePercentage(nil)
     }
     
     func addMenu() {
@@ -160,11 +184,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         weekMenuItem = NSMenuItem(title: "Week", action: #selector(setMode), keyEquivalent: "");
         monthMenuItem = NSMenuItem(title: "Month", action: #selector(setMode), keyEquivalent: "");
         yearMenuItem = NSMenuItem(title: "Year", action: #selector(setMode), keyEquivalent: "");
+        customMenuItem = NSMenuItem(title: CustomDeadline.name, action: #selector(setMode), keyEquivalent: "");
         
         dayMenuItem.identifier = NSUserInterfaceItemIdentifier("day")
         weekMenuItem.identifier = NSUserInterfaceItemIdentifier("week")
         monthMenuItem.identifier = NSUserInterfaceItemIdentifier("month")
         yearMenuItem.identifier = NSUserInterfaceItemIdentifier("year")
+        customMenuItem.identifier = NSUserInterfaceItemIdentifier("custom")
         
         switch getCurrentMode() {
         case "day":
@@ -175,6 +201,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             monthMenuItem.state = .on
         case "year":
             yearMenuItem.state = .on
+        case "custom":
+            customMenuItem.state = .on
         default:
             break
         }
@@ -183,6 +211,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(weekMenuItem)
         menu.addItem(monthMenuItem)
         menu.addItem(yearMenuItem)
+        menu.addItem(customMenuItem)
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Preferences", action: #selector(openPreferences), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
@@ -193,13 +222,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func changeProgressBarColor(color: String) {
         if let colorObj = getColorByName(color: color) {
-            progressBar.foreground = colorObj
-            UserDefaults.standard.setValue(color, forKey: "progressbar_color")
+            progressBar?.foreground = colorObj
+            UserDefaults.standard.setValue(color, forKey: "progressbar.color")
         }
     }
     
     func getProgressBarColorName() -> String {
-        if let color = UserDefaults.standard.string(forKey: "progressbar_color") {
+        if let color = UserDefaults.standard.string(forKey: "progressbar.color") {
             return color
         } else {
             return "gray"
