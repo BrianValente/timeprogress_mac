@@ -10,7 +10,7 @@
 		38EFF300D3A93D86029E27A1 /* Pods_Time_Progress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350F8373A666A8FFF9E65B2 /* Pods_Time_Progress.framework */; };
 		4A21BFFB21A3D38000BDC4F9 /* NSButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21BFFA21A3D38000BDC4F9 /* NSButtonLabel.swift */; };
 		4A6E5A1521A4EEF9000FFA44 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E5A1421A4EEF9000FFA44 /* DateExtensions.swift */; };
-		4AE37AE621ADFB0400FFF909 /* CustomDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE37AE521ADFB0400FFF909 /* CustomDeadline.swift */; };
+		4AE37AE621ADFB0400FFF909 /* Deadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE37AE521ADFB0400FFF909 /* Deadline.swift */; };
 		4AF1127321A2B515005619FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1127221A2B515005619FB /* AppDelegate.swift */; };
 		4AF1127521A2B515005619FB /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1127421A2B515005619FB /* Preferences.swift */; };
 		4AF1127721A2B516005619FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF1127621A2B516005619FB /* Assets.xcassets */; };
@@ -27,7 +27,7 @@
 		4A8B4B6B21A64E21001DDC41 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAtLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8B4B6D21A64EAF001DDC41 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAtLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ACCB55D21A6500E002F3D90 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LaunchAtLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AE37AE521ADFB0400FFF909 /* CustomDeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDeadline.swift; sourceTree = "<group>"; };
+		4AE37AE521ADFB0400FFF909 /* Deadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deadline.swift; sourceTree = "<group>"; };
 		4AF1126F21A2B515005619FB /* Time Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Progress.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF1127221A2B515005619FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF1127421A2B515005619FB /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 				4A6E5A1421A4EEF9000FFA44 /* DateExtensions.swift */,
 				4AF1127621A2B516005619FB /* Assets.xcassets */,
 				4AF1127821A2B517005619FB /* Main.storyboard */,
-				4AE37AE521ADFB0400FFF909 /* CustomDeadline.swift */,
+				4AE37AE521ADFB0400FFF909 /* Deadline.swift */,
 				4AF1127B21A2B517005619FB /* Info.plist */,
 				4A21BFFA21A3D38000BDC4F9 /* NSButtonLabel.swift */,
 			);
@@ -230,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AE37AE621ADFB0400FFF909 /* CustomDeadline.swift in Sources */,
+				4AE37AE621ADFB0400FFF909 /* Deadline.swift in Sources */,
 				4AF1127521A2B515005619FB /* Preferences.swift in Sources */,
 				4A6E5A1521A4EEF9000FFA44 /* DateExtensions.swift in Sources */,
 				4A21BFFB21A3D38000BDC4F9 /* NSButtonLabel.swift in Sources */,

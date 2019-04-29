@@ -25,11 +25,16 @@ class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerC
     @IBOutlet weak var gray: NSButton!
     @IBOutlet weak var black: NSButton!
     
+    @IBOutlet weak var inversePercentage: NSButton!
     @IBOutlet weak var launchAtLogin: NSButton!
     
     @IBOutlet weak var customDeadlineName: NSTextField!
+    @IBOutlet weak var customDeadlineModeDates: NSButton!
+    @IBOutlet weak var customDeadlineModeHours: NSButton!
     @IBOutlet weak var customDeadlineTimeFrom: NSDatePicker!
     @IBOutlet weak var customDeadlineTimeTo: NSDatePicker!
+    @IBOutlet weak var customDeadlineSettingsHours: NSGridView!
+    @IBOutlet weak var customDeadlineSettingsDates: NSGridView!
     
     @IBOutlet weak var progressBarVisible: NSButton!
     
@@ -77,6 +82,7 @@ class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerC
             break
         }
         
+        inversePercentage.state = UserDefaults.standard.bool(forKey: "settings.inversepercentage") ? .on : .off
         launchAtLogin.state = LoginServiceKit.isExistLoginItems() ? .on : .off
         
         progressBarVisible.state = AppDelegate.shared!.getProgressBarVisibility() ? .on : .off
@@ -85,27 +91,63 @@ class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerC
     }
     
     func initCustomDeadline() {
-        customDeadlineName.stringValue = CustomDeadline.name
+        customDeadlineName.stringValue = Deadline.name
         //customDeadlineTimeFrom.stringValue = (AppDelegate.shared?.getCustomDeadlineTimeFrom())!
         //customDeadlineTimeTo.stringValue = (AppDelegate.shared?.getCustomDeadlineTimeTo())!
         
         guard
-            let from = CustomDeadline.from,
-            let to = CustomDeadline.to
+            let from = Deadline.Hours.from,
+            let to = Deadline.Hours.to
             else {
                 return
         }
         
         customDeadlineTimeFrom.dateValue = from
         customDeadlineTimeTo.dateValue = to
+        
+        loadDeadlineModes()
+    }
+    
+    func loadDeadlineModes() {
+        switch Deadline.getDeadlineMode() {
+        case "dates":
+            customDeadlineSettingsDates.isHidden = false
+            customDeadlineSettingsHours.isHidden = true
+            customDeadlineModeDates.state = .on
+            customDeadlineModeHours.state = .off
+        case "hours":
+            customDeadlineSettingsHours.isHidden = false
+            customDeadlineSettingsDates.isHidden = true
+            customDeadlineModeHours.state = .on
+            customDeadlineModeDates.state = .off
+        default:
+            break
+        }
     }
     
     func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
             if (textField == customDeadlineName) {
-                CustomDeadline.name = textField.stringValue
+                Deadline.name = textField.stringValue
             }
         }
+    }
+    
+    @IBAction func customDeadlineModeDidChange(_ sender: Any) {
+        guard let button: NSButton = sender as? NSButton else {
+            return
+        }
+        
+        switch button.identifier?.rawValue {
+        case "customdeadline.mode.dates":
+            UserDefaults.standard.setValue("dates", forKey: "customdeadline.mode")
+        case "customdeadline.mode.hours":
+            UserDefaults.standard.setValue("hours", forKey: "customdeadline.mode")
+        default:
+            break
+        }
+        
+        loadDeadlineModes()
     }
     
     @IBAction func launchAtLogin(_ sender: NSButton) {
@@ -118,12 +160,17 @@ class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerC
         sender.state = LoginServiceKit.isExistLoginItems() ? .on : .off
     }
     
+    @IBAction func inversePercentage(_ sender: Any) {
+        let value: Bool = inversePercentage.state == .on
+        UserDefaults.standard.setValue(value, forKey: "settings.inversepercentage")
+    }
+    
     @IBAction func onCustomDeadlineTimeFromChange(_ sender: NSDatePicker) {
-        CustomDeadline.from = sender.dateValue
+        Deadline.Hours.from = sender.dateValue
     }
     
     @IBAction func onCustomDeadlineTimeToChange(_ sender: NSDatePicker) {
-        CustomDeadline.to = sender.dateValue
+        Deadline.Hours.to = sender.dateValue
     }
     
     @IBAction func onProgressBarVisibleChange(_ sender: NSButton) {

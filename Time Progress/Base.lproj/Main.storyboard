@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -619,7 +619,7 @@
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="toggleSourceList:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
+                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -706,15 +706,14 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="Preferences" customModule="Time_Progress" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="560"/>
+                        <rect key="frame" x="0.0" y="0.0" width="392" height="650"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView focusRingType="none" appearanceType="inheritedVibrantLight" fixedFrame="YES" verifyAmbiguity="ignoreSizes" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-fh-jRg">
-                                <rect key="frame" x="0.0" y="30" width="392" height="530"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <visualEffectView focusRingType="none" appearanceType="inheritedVibrantLight" verifyAmbiguity="ignoreSizes" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="ISc-fh-jRg">
+                                <rect key="frame" x="0.0" y="0.0" width="392" height="650"/>
                             </visualEffectView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-L7-9UM">
-                                <rect key="frame" x="18" y="498" width="116" height="22"/>
+                                <rect key="frame" x="18" y="588" width="116" height="22"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Progress Bar" id="cUI-MD-4bz">
                                     <font key="font" metaFont="systemBold" size="18"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -722,7 +721,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eTh-dh-uQR">
-                                <rect key="frame" x="18" y="467" width="63" height="18"/>
+                                <rect key="frame" x="18" y="557" width="63" height="18"/>
                                 <buttonCell key="cell" type="check" title="Visible" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="U9N-l0-fwZ">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -732,15 +731,15 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ag5-M5-v6Z">
-                                <rect key="frame" x="18" y="437" width="39" height="17"/>
+                                <rect key="frame" x="18" y="527" width="39" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Color" id="mVf-ll-d90">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <gridView xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="5" columnSpacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-f1-Kal">
-                                <rect key="frame" x="20" y="354" width="270" height="68"/>
+                            <gridView xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="5" columnSpacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-f1-Kal" userLabel="Colors">
+                                <rect key="frame" x="20" y="444" width="270" height="68"/>
                                 <rows>
                                     <gridRow bottomPadding="5" id="OXn-Tp-fLe"/>
                                     <gridRow bottomPadding="5" id="GE1-iO-vps"/>
@@ -863,7 +862,7 @@
                                 </gridCells>
                             </gridView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VNP-4B-Fmg">
-                                <rect key="frame" x="18" y="307" width="150" height="22"/>
+                                <rect key="frame" x="18" y="397" width="150" height="22"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Custom deadline" id="Cnj-e5-UwB">
                                     <font key="font" metaFont="systemBold" size="18"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -871,7 +870,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gC7-C9-AIP">
-                                <rect key="frame" x="20" y="270" width="200" height="22"/>
+                                <rect key="frame" x="20" y="360" width="200" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="wqJ-qo-eeP"/>
                                 </constraints>
@@ -884,8 +883,8 @@
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="7bd-4t-YdG"/>
                                 </connections>
                             </textField>
-                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="WfJ-9T-qWa">
-                                <rect key="frame" x="20" y="239" width="225" height="16"/>
+                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="WfJ-9T-qWa" userLabel="Custom Deadline Modes">
+                                <rect key="frame" x="20" y="329" width="225" height="16"/>
                                 <rows>
                                     <gridRow id="5DV-11-kR9"/>
                                 </rows>
@@ -895,30 +894,36 @@
                                 </columns>
                                 <gridCells>
                                     <gridCell row="5DV-11-kR9" column="Lm8-3c-WBU" id="hFp-sL-Q28">
-                                        <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-j4-gXj">
+                                        <button key="contentView" identifier="customdeadline.mode.dates" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-j4-gXj">
                                             <rect key="frame" x="-1" y="-1" width="112" height="18"/>
-                                            <buttonCell key="cell" type="radio" title="Between dates" bezelStyle="regularSquare" imagePosition="left" alignment="left" enabled="NO" inset="2" id="lfq-l3-FJU">
+                                            <buttonCell key="cell" type="radio" title="Between dates" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="lfq-l3-FJU">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="customDeadlineModeDidChange:" target="XfG-lQ-9wD" id="lIk-fF-hrX"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                     <gridCell row="5DV-11-kR9" column="l1M-9h-Xa4" id="8NJ-jy-k04">
-                                        <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zyU-Wn-MYN">
+                                        <button key="contentView" identifier="customdeadline.mode.hours" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zyU-Wn-MYN">
                                             <rect key="frame" x="114" y="-1" width="113" height="18"/>
-                                            <buttonCell key="cell" type="radio" title="Between hours" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="hWc-wC-pwp">
+                                            <buttonCell key="cell" type="radio" title="Between hours" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="hWc-wC-pwp">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="customDeadlineModeDidChange:" target="XfG-lQ-9wD" id="oey-ne-ZUh"/>
+                                            </connections>
                                         </button>
                                     </gridCell>
                                 </gridCells>
                             </gridView>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcr-Sn-ktQ" userLabel="&quot;Custom deadline&quot; Stack View">
-                                <rect key="frame" x="20" y="199" width="297" height="30"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcr-Sn-ktQ" userLabel="Custom Deadline Modes Settings">
+                                <rect key="frame" x="20" y="229" width="297" height="90"/>
                                 <subviews>
-                                    <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="edg-oA-Lge">
-                                        <rect key="frame" x="0.0" y="0.0" width="297" height="30"/>
+                                    <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="edg-oA-Lge" userLabel="Hours">
+                                        <rect key="frame" x="0.0" y="60" width="297" height="30"/>
                                         <rows>
                                             <gridRow id="cKZ-P9-GWe"/>
                                         </rows>
@@ -1005,24 +1010,130 @@
                                             </gridCell>
                                         </gridCells>
                                     </gridView>
+                                    <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="FUb-6X-hPg" userLabel="Dates">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="52"/>
+                                        <rows>
+                                            <gridRow id="PIS-w6-qKE"/>
+                                            <gridRow id="b1N-Tu-gno"/>
+                                        </rows>
+                                        <columns>
+                                            <gridColumn id="zge-Af-sai"/>
+                                        </columns>
+                                        <gridCells>
+                                            <gridCell row="PIS-w6-qKE" column="zge-Af-sai" id="Z8d-D4-Rho">
+                                                <stackView key="contentView" distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ZQ-bN-MRR">
+                                                    <rect key="frame" x="0.0" y="29" width="200" height="23"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r1p-5S-xi7">
+                                                            <rect key="frame" x="-2" y="3" width="34" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="chj-YO-ZQ5"/>
+                                                            </constraints>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="From" id="Whh-b4-RV1">
+                                                                <font key="font" usesAppearanceFont="YES"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vzn-3a-3Sy">
+                                                            <rect key="frame" x="38" y="0.0" width="165" height="27"/>
+                                                            <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="Ox1-x3-6mI">
+                                                                <font key="font" metaFont="system"/>
+                                                                <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                                                    <!--1982-02-12 16:00:00 +0000-->
+                                                                </date>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES"/>
+                                                            </datePickerCell>
+                                                        </datePicker>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="K5A-7E-tty"/>
+                                                    </constraints>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </gridCell>
+                                            <gridCell row="b1N-Tu-gno" column="zge-Af-sai" id="j1d-Xl-9qZ">
+                                                <stackView key="contentView" distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nv-ts-F0n">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-od-1Ow">
+                                                            <rect key="frame" x="-2" y="3" width="34" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="1ig-L5-uNY"/>
+                                                            </constraints>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="To" id="Y8b-e9-4fV">
+                                                                <font key="font" usesAppearanceFont="YES"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W0c-HG-2zf">
+                                                            <rect key="frame" x="38" y="0.0" width="165" height="27"/>
+                                                            <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="fDd-Pn-7Co">
+                                                                <font key="font" metaFont="system"/>
+                                                                <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                                                    <!--1982-02-12 16:00:00 +0000-->
+                                                                </date>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES"/>
+                                                            </datePickerCell>
+                                                        </datePicker>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="ieZ-Nd-hfB"/>
+                                                    </constraints>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </gridCell>
+                                        </gridCells>
+                                    </gridView>
                                 </subviews>
                                 <visibilityPriorities>
+                                    <integer value="1000"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
                                     <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g20-24-0If">
-                                <rect key="frame" x="18" y="157" width="128" height="22"/>
+                                <rect key="frame" x="18" y="187" width="128" height="22"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Miscellaneous" id="HDg-Ca-XJG">
                                     <font key="font" metaFont="systemBold" size="18"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4wN-0U-Q0R">
+                                <rect key="frame" x="18" y="156" width="255" height="18"/>
+                                <buttonCell key="cell" type="check" title="Inverse percentage (from 100% to 0%)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="yae-lh-KCf">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="inversePercentage:" target="XfG-lQ-9wD" id="u7q-9b-a0S"/>
+                                </connections>
+                            </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-R7-cA6">
-                                <rect key="frame" x="18" y="126" width="119" height="18"/>
+                                <rect key="frame" x="18" y="131" width="119" height="18"/>
                                 <buttonCell key="cell" type="check" title="Launch at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="drf-Zj-Bdb">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1107,37 +1218,48 @@
                             <constraint firstItem="eTh-dh-uQR" firstAttribute="top" secondItem="dhr-L7-9UM" secondAttribute="bottom" constant="15" id="801-ex-Ua7"/>
                             <constraint firstItem="ag5-M5-v6Z" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="8GB-o6-CiA"/>
                             <constraint firstItem="gC7-C9-AIP" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="9f5-cp-ODF"/>
+                            <constraint firstItem="4wN-0U-Q0R" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="A7J-pL-NiH"/>
                             <constraint firstItem="M2b-R7-cA6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BKh-5U-JkG"/>
                             <constraint firstItem="dhr-L7-9UM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="Cii-IG-waC"/>
                             <constraint firstAttribute="trailing" secondItem="NTM-pk-aGd" secondAttribute="trailing" constant="63" id="ELy-Ff-9PC"/>
                             <constraint firstItem="ClP-f1-Kal" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="H2s-ob-vqA"/>
                             <constraint firstItem="xcr-Sn-ktQ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="J8Z-id-T8h"/>
                             <constraint firstItem="gC7-C9-AIP" firstAttribute="top" secondItem="VNP-4B-Fmg" secondAttribute="bottom" constant="15" id="L8s-rD-kez"/>
+                            <constraint firstItem="4wN-0U-Q0R" firstAttribute="top" secondItem="g20-24-0If" secondAttribute="bottom" constant="15" id="LZh-dG-59J"/>
                             <constraint firstItem="g20-24-0If" firstAttribute="top" secondItem="xcr-Sn-ktQ" secondAttribute="bottom" constant="20" id="MRs-JD-GdB"/>
                             <constraint firstItem="dhr-L7-9UM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="O7s-hD-K0j"/>
+                            <constraint firstAttribute="bottom" secondItem="ISc-fh-jRg" secondAttribute="bottom" id="Rik-rO-PpP"/>
+                            <constraint firstItem="ISc-fh-jRg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="UHf-tw-kpz"/>
                             <constraint firstAttribute="bottom" secondItem="NTM-pk-aGd" secondAttribute="bottom" constant="20" id="WBr-w3-8iM"/>
+                            <constraint firstItem="ISc-fh-jRg" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Y2r-HF-Gz4"/>
                             <constraint firstItem="ag5-M5-v6Z" firstAttribute="top" secondItem="eTh-dh-uQR" secondAttribute="bottom" constant="15" id="ZAN-qC-5nA"/>
                             <constraint firstItem="WfJ-9T-qWa" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="ZXU-cj-Xfa"/>
                             <constraint firstItem="eTh-dh-uQR" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Zgv-D7-joE"/>
                             <constraint firstItem="NTM-pk-aGd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="63" id="a5t-Ut-jgn"/>
                             <constraint firstItem="g20-24-0If" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="aZ6-YK-Ndw"/>
+                            <constraint firstAttribute="trailing" secondItem="ISc-fh-jRg" secondAttribute="trailing" id="bO0-8d-Up5"/>
                             <constraint firstItem="VNP-4B-Fmg" firstAttribute="top" secondItem="ClP-f1-Kal" secondAttribute="bottom" constant="25" id="cLE-fa-CZz"/>
                             <constraint firstItem="ClP-f1-Kal" firstAttribute="top" secondItem="ag5-M5-v6Z" secondAttribute="bottom" constant="15" id="gaw-hc-7MM"/>
                             <constraint firstItem="VNP-4B-Fmg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="gzL-lI-Yvi"/>
                             <constraint firstItem="WfJ-9T-qWa" firstAttribute="top" secondItem="gC7-C9-AIP" secondAttribute="bottom" constant="15" id="jGu-2b-gqp"/>
                             <constraint firstItem="xcr-Sn-ktQ" firstAttribute="top" secondItem="WfJ-9T-qWa" secondAttribute="bottom" constant="10" id="mwW-5u-8iz"/>
-                            <constraint firstItem="M2b-R7-cA6" firstAttribute="top" secondItem="g20-24-0If" secondAttribute="bottom" constant="15" id="s52-6o-U45"/>
+                            <constraint firstItem="M2b-R7-cA6" firstAttribute="top" secondItem="g20-24-0If" secondAttribute="bottom" constant="40" id="s52-6o-U45"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="black" destination="eG2-tt-gxv" id="aCz-Ss-vNe"/>
                         <outlet property="blue" destination="Icf-FE-WlW" id="W6s-8K-OxG"/>
+                        <outlet property="customDeadlineModeDates" destination="ygx-j4-gXj" id="Ns2-XF-jRT"/>
+                        <outlet property="customDeadlineModeHours" destination="zyU-Wn-MYN" id="crh-bJ-Xw1"/>
                         <outlet property="customDeadlineName" destination="gC7-C9-AIP" id="Znz-Ol-wXo"/>
+                        <outlet property="customDeadlineSettingsDates" destination="FUb-6X-hPg" id="mMZ-BW-0oT"/>
+                        <outlet property="customDeadlineSettingsHours" destination="edg-oA-Lge" id="6hs-es-TRv"/>
                         <outlet property="customDeadlineTimeFrom" destination="QjD-j6-rYK" id="lLD-W8-T2G"/>
                         <outlet property="customDeadlineTimeTo" destination="7kY-KQ-yVQ" id="fDe-wt-few"/>
                         <outlet property="githubButton" destination="1B9-1w-scV" id="tpK-NL-VXn"/>
                         <outlet property="gray" destination="vr4-xy-BZE" id="oRy-uH-At8"/>
                         <outlet property="green" destination="9op-nz-hPT" id="9fA-j4-0ly"/>
+                        <outlet property="inversePercentage" destination="4wN-0U-Q0R" id="Sao-Ce-e02"/>
                         <outlet property="launchAtLogin" destination="M2b-R7-cA6" id="uEg-ym-rYc"/>
                         <outlet property="orange" destination="Zmj-MO-p9h" id="Xqh-MH-BML"/>
                         <outlet property="progressBarVisible" destination="eTh-dh-uQR" id="VrU-lA-Jz4"/>
@@ -1150,7 +1272,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="785"/>
+            <point key="canvasLocation" x="75" y="810"/>
         </scene>
     </scenes>
     <resources>

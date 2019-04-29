@@ -69,44 +69,56 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         case "year":
             return "Year"
         case "custom":
-            return CustomDeadline.name
+            return Deadline.name
         default:
             return ""
         }
     }
     
     func getCurrentModeStringValue() -> String {
-        switch getCurrentMode() {
-        case "day":
-            return String(getDayProgressPercentage()) + "%"
-        case "week":
-            return String(getWeekProgressPercentage()) + "%"
-        case "month":
-            return String(getMonthProgressPercentage()) + "%"
-        case "year":
-            return String(getYearProgressPercentage()) + "%"
-        case "custom":
-            return CustomDeadline.stringValue
-        default:
-            return "-1%"
-        }
+//        switch getCurrentMode() {
+//        case "day":
+//            return String(getDayProgressPercentage()) + "%"
+//        case "week":
+//            return String(getWeekProgressPercentage()) + "%"
+//        case "month":
+//            return String(getMonthProgressPercentage()) + "%"
+//        case "year":
+//            return String(getYearProgressPercentage()) + "%"
+//        case "custom":
+//            return Deadline.stringValue
+//        default:
+//            return "-1%"
+//        }
+        
+        return String(getCurrentModeValue()) + "%"
     }
     
     func getCurrentModeValue() -> Int {
+        var value = 69
         switch getCurrentMode() {
         case "day":
-            return getDayProgressPercentage()
+            value = getDayProgressPercentage()
         case "week":
-            return getWeekProgressPercentage()
+            value = getWeekProgressPercentage()
         case "month":
-            return getMonthProgressPercentage()
+            value = getMonthProgressPercentage()
         case "year":
-            return getYearProgressPercentage()
-        case "custom":
-            return CustomDeadline.percentage
+            value = getYearProgressPercentage()
+        case "custom",
+             "deadline":
+            value = Deadline.percentage
         default:
-            return 69
+            value = 69
         }
+        
+        let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+        
+        if (invert) {
+            value = 100 - value
+        }
+        
+        return value
     }
     
     func getCurrentMode() -> String {
@@ -143,7 +155,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func getProgressBarVisibility() -> Bool {
-        return (UserDefaults.standard.object(forKey: "progressbar.visible") as? Bool) ?? true
+        //return (UserDefaults.standard.object(forKey: "progressbar.visible") as? Bool) ?? true
+        return progressBar != nil
     }
     
     func setProgressBarVisibility(bool: Bool) {
@@ -152,7 +165,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func loadProgressBarVisibility() {
-        if getProgressBarVisibility() && progressBar == nil {
+        if UserDefaults.standard.bool(forKey: "progressbar.visible") && progressBar == nil {
             progressBar = ProgressBar(frame: NSRect(x: 0, y: 0, width: statusBarButton.frame.height * 1.5, height: statusBarButton.frame.height * 0.6))
             
             progressBar!.progress = CGFloat(getYearProgressPercentage()) / 100
@@ -184,7 +197,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         weekMenuItem = NSMenuItem(title: "Week", action: #selector(setMode), keyEquivalent: "");
         monthMenuItem = NSMenuItem(title: "Month", action: #selector(setMode), keyEquivalent: "");
         yearMenuItem = NSMenuItem(title: "Year", action: #selector(setMode), keyEquivalent: "");
-        customMenuItem = NSMenuItem(title: CustomDeadline.name, action: #selector(setMode), keyEquivalent: "");
+        customMenuItem = NSMenuItem(title: Deadline.name, action: #selector(setMode), keyEquivalent: "");
         
         dayMenuItem.identifier = NSUserInterfaceItemIdentifier("day")
         weekMenuItem.identifier = NSUserInterfaceItemIdentifier("week")
@@ -297,7 +310,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func getWeekProgressPercentage() -> Int {
         let date = Date()
-        let thisWeek = date.previous(.monday).midnight.timeIntervalSince1970
+        var thisWeek = date.previous(.monday).midnight.timeIntervalSince1970
+        
+        // if today's monday
+        if (Calendar(identifier: .gregorian).dateComponents([.weekday], from: date).weekday == 2) {
+            thisWeek = date.midnight.timeIntervalSince1970
+        }
+        
         let nextWeek = date.next(.monday).midnight.timeIntervalSince1970
         let now = date.timeIntervalSince1970
         
