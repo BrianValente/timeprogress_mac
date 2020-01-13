@@ -91,11 +91,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            return "-1%"
 //        }
         
-        return String(getCurrentModeValue()) + "%"
+        if (getCurrentMode() != "custom") {
+            return String(getCurrentModeValue()) + "%"
+        } else {
+            return Deadline.stringValue
+        }
+        
     }
     
     func getCurrentModeValue() -> Int {
-        var value = 69
+        var value = -1
         switch getCurrentMode() {
         case "day":
             value = getDayProgressPercentage()
@@ -109,13 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
              "deadline":
             value = Deadline.percentage
         default:
-            value = 69
-        }
-        
-        let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
-        
-        if (invert) {
-            value = 100 - value
+            value = -1
         }
         
         return value
@@ -288,7 +287,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let endDate = formatter.date(from: "\(year + 1)-01-01 00:00:00")!.timeIntervalSince1970
         let currentDate = date.timeIntervalSince1970
         
-        let percentage = ((currentDate - startDate) * 100) / (endDate - startDate)
+        var percentage = ((currentDate - startDate) * 100) / (endDate - startDate)
+        
+        let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+        if (invert) {
+            percentage = 100 - percentage
+        }
         
         return Int(percentage)
     }
@@ -303,7 +307,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let monthSeconds = end - start
         let calcNow = now - start
         
-        let percentage = (calcNow * 100) / monthSeconds
+        var percentage = (calcNow * 100) / monthSeconds
+        
+        let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+        if (invert) {
+            percentage = 100 - percentage
+        }
         
         return Int(percentage)
     }
@@ -323,7 +332,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let weekSeconds = nextWeek - thisWeek
         let calcNow = now - thisWeek
         
-        let percentage = (calcNow * 100) / weekSeconds
+        var percentage = (calcNow * 100) / weekSeconds
+        
+        let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+        if (invert) {
+            percentage = 100 - percentage
+        }
         
         return Int(percentage)
     }
@@ -336,7 +350,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let daySeconds = tomorrow - today
         let calcNow = now - today
         
-        let percentage = (calcNow * 100) / daySeconds
+        var percentage = (calcNow * 100) / daySeconds
+        
+        let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+        if (invert) {
+            percentage = 100 - percentage
+        }
         
         return Int(percentage)
     }

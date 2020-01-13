@@ -33,6 +33,8 @@ class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerC
     @IBOutlet weak var customDeadlineModeHours: NSButton!
     @IBOutlet weak var customDeadlineTimeFrom: NSDatePicker!
     @IBOutlet weak var customDeadlineTimeTo: NSDatePicker!
+    @IBOutlet weak var customDeadlineDateFrom: NSDatePicker!
+    @IBOutlet weak var customDeadlineDateTo: NSDatePicker!
     @IBOutlet weak var customDeadlineSettingsHours: NSGridView!
     @IBOutlet weak var customDeadlineSettingsDates: NSGridView!
     
@@ -97,13 +99,18 @@ class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerC
         
         guard
             let from = Deadline.Hours.from,
-            let to = Deadline.Hours.to
+            let to = Deadline.Hours.to,
+            let dateFrom = Deadline.Dates.from,
+            let dateTo = Deadline.Dates.to
             else {
                 return
         }
         
         customDeadlineTimeFrom.dateValue = from
         customDeadlineTimeTo.dateValue = to
+        
+        customDeadlineDateFrom.dateValue = dateFrom
+        customDeadlineDateTo.dateValue = dateTo
         
         loadDeadlineModes()
     }
@@ -171,6 +178,14 @@ class Preferences: NSViewController, NSControlTextEditingDelegate, NSDatePickerC
     
     @IBAction func onCustomDeadlineTimeToChange(_ sender: NSDatePicker) {
         Deadline.Hours.to = sender.dateValue
+    }
+    
+    @IBAction func onCustomDeadlineDateFromChange(_ sender: NSDatePicker) {
+        Deadline.Dates.from = sender.dateValue
+    }
+    
+    @IBAction func onCustomDeadlineDateToChange(_ sender: NSDatePicker) {
+        Deadline.Dates.to = sender.dateValue
     }
     
     @IBAction func onProgressBarVisibleChange(_ sender: NSButton) {

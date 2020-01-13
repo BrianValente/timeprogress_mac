@@ -38,7 +38,7 @@ extension Date {
         
         assert(weekdaysName.contains(dayName), "weekday symbol should be in form \(weekdaysName)")
         
-        let searchWeekdayIndex = weekdaysName.index(of: dayName)! + 1
+        let searchWeekdayIndex = weekdaysName.firstIndex(of: dayName)! + 1
         
         let calendar = Calendar(identifier: .gregorian)
         

@@ -53,8 +53,79 @@ class Deadline {
     }
     
     class Dates {
-        static var percentage = 69
-        static var stringValue = "DATE"
+        
+        static var from: Date? {
+            get {
+                let dateFrom = UserDefaults.standard.object(forKey: "customdeadline.date.from") as! Date? ?? Date()
+                return dateFrom
+            }
+            set {
+                guard let date = newValue else { return }
+                UserDefaults.standard.setValue(date, forKey: "customdeadline.date.from")
+            }
+        }
+        
+        static var to: Date? {
+            get {
+                let dateTo = UserDefaults.standard.object(forKey: "customdeadline.date.to") as! Date? ?? Date()
+                return dateTo
+            } set {
+                guard let date = newValue else { return }
+                UserDefaults.standard.setValue(date, forKey: "customdeadline.date.to")
+            }
+        }
+        
+        static var stringValue: String {
+            let rawPercentage = self.rawPercentage
+            let percentage = self.percentage
+            
+            if (rawPercentage == 100) {
+                return "Finished!"
+            } else if (rawPercentage == -1) {
+                return "Not yet!"
+            }
+            
+            return String(percentage) + "%"
+        }
+        
+        static var rawPercentage: Int {
+            guard
+                let dateFrom = Dates.from,
+                let dateTo = Dates.to
+                else {
+                    return -1
+            }
+            
+            let from = dateFrom.timeIntervalSince1970
+            let to = dateTo.timeIntervalSince1970
+            let now = Date().timeIntervalSince1970
+            
+            var percentage = ((now - from) * 100) / (to - from)
+            
+//            let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+//            if (invert) {
+//                percentage = 100 - percentage
+//            }
+            
+            if (percentage > 100) {
+                percentage = 100
+            } else if (percentage < 0) {
+                percentage = -1
+            }
+            
+            return Int(percentage)
+        }
+        
+        static var percentage: Int {
+            var percentage = self.rawPercentage
+            
+            let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+            if (invert) {
+                percentage = 100 - percentage
+            }
+            
+            return percentage
+        }
     }
     
     class Hours {
@@ -109,15 +180,15 @@ class Deadline {
                 let year = calendar.component(Calendar.Component.year, from: nowObj)
                 
                 guard
-                    let toObj = formatter.date(from: "\(year)-\(month)-\(day) \(timeTo)"),
-                    let fromObj = Deadline.Hours.from
+                    let toObj = formatter.date(from: "\(year)-\(month)-\(day) \(timeTo)")
+                    //let fromObj = Deadline.Hours.from
                     else {
                         return nil
                 }
                 
-                if (fromObj.timeIntervalSince1970 > toObj.timeIntervalSince1970) {
-                    return toObj.dayAfter
-                }
+//                if (fromObj.timeIntervalSince1970 > toObj.timeIntervalSince1970) {
+//                    return toObj.dayAfter
+//                }
                 
                 return toObj
             } set {
@@ -136,18 +207,19 @@ class Deadline {
         }
         
         static var stringValue: String {
+            let rawPercentage = self.rawPercentage
             let percentage = self.percentage
             
-            if (percentage == 100) {
+            if (rawPercentage == 100) {
                 return "Finished!"
-            } else if (percentage == -1) {
+            } else if (rawPercentage == -1) {
                 return "Not yet!"
             }
             
             return String(percentage) + "%"
         }
         
-        static var percentage: Int {
+        static var rawPercentage: Int {
             guard
                 let timeFrom = Hours.from,
                 let timeTo = Hours.to
@@ -155,9 +227,13 @@ class Deadline {
                     return -1
             }
             
-            let from = timeFrom.timeIntervalSince1970
+            var from = timeFrom.timeIntervalSince1970
             let to = timeTo.timeIntervalSince1970
             let now = Date().timeIntervalSince1970
+            
+            if (from > to) {
+                from -= 86400
+            }
             
             var percentage = ((now - from) * 100) / (to - from)
             
@@ -170,18 +246,16 @@ class Deadline {
             return Int(percentage)
         }
         
-        static var name: String {
-            get {
-                if let name = UserDefaults.standard.string(forKey: "customdeadline.name"), !name.isEmpty {
-                    return name
-                } else {
-                    return "Work 💻"
-                }
+        static var percentage: Int {
+            let rawPercentage = self.rawPercentage
+            var percentage = rawPercentage;
+            
+            let invert = UserDefaults.standard.bool(forKey: "settings.inversepercentage");
+            if (invert) {
+                percentage = 100 - rawPercentage
             }
             
-            set {
-                UserDefaults.standard.setValue(newValue, forKey: "customdeadline.name")
-            }
+            return percentage
         }
     }
     

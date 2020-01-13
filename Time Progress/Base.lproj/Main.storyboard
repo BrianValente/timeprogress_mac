@@ -1046,6 +1046,9 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES"/>
                                                             </datePickerCell>
+                                                            <connections>
+                                                                <action selector="onCustomDeadlineDateFromChange:" target="XfG-lQ-9wD" id="fgi-tE-ZtP"/>
+                                                            </connections>
                                                         </datePicker>
                                                     </subviews>
                                                     <constraints>
@@ -1087,6 +1090,9 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES"/>
                                                             </datePickerCell>
+                                                            <connections>
+                                                                <action selector="onCustomDeadlineDateToChange:" target="XfG-lQ-9wD" id="IRB-an-sfi"/>
+                                                            </connections>
                                                         </datePicker>
                                                     </subviews>
                                                     <constraints>
@@ -1249,6 +1255,8 @@
                     <connections>
                         <outlet property="black" destination="eG2-tt-gxv" id="aCz-Ss-vNe"/>
                         <outlet property="blue" destination="Icf-FE-WlW" id="W6s-8K-OxG"/>
+                        <outlet property="customDeadlineDateFrom" destination="Vzn-3a-3Sy" id="sjj-Q0-Blf"/>
+                        <outlet property="customDeadlineDateTo" destination="W0c-HG-2zf" id="bPI-u4-ieW"/>
                         <outlet property="customDeadlineModeDates" destination="ygx-j4-gXj" id="Ns2-XF-jRT"/>
                         <outlet property="customDeadlineModeHours" destination="zyU-Wn-MYN" id="crh-bJ-Xw1"/>
                         <outlet property="customDeadlineName" destination="gC7-C9-AIP" id="Znz-Ol-wXo"/>
